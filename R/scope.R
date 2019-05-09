@@ -15,8 +15,7 @@ initialize_application <- function(application = getwd(), dry_run = FALSE)
   )
 
   # We manage a set of packages during deploy that might require specific versions
-  IGNORED <- c(
-  )
+  IGNORED <- getOption("cloudml.ignored.packages", c())
 
   packrat::opts$ignored.packages(IGNORED)
   packrat::.snapshotImpl(
@@ -67,13 +66,11 @@ scope_deployment <- function(id,
   user_exclusions <- strsplit(Sys.getenv("CLOUDML_APPLICATION_EXCLUSIONS", ""), ",")[[1]]
 
   # similarily for inclusions?
-  exclude <- c("gs", "runs", ".git", ".svn", "packrat/lib*", "packrat/src", user_exclusions)
+  exclude <- c("gs", "runs", ".git", ".svn", user_exclusions)
 
   # use generic name to avoid overriding package names, using a dir named
   # keras will override the actual keras package!
   directory <- file.path(root, "cloudml-model")
-
-  browser()
 
   # build deployment bundle
   copy_directory(application,

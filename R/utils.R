@@ -39,8 +39,6 @@ copy_directory <- function(source,
   # get the original top level file listing
   all_files <- list.files(source, all.files = TRUE, no.. = TRUE)
 
-  browser()
-
   # apply excludes to the top level listing
   exclude <- utils::glob2rx(exclude)
   files <- all_files
