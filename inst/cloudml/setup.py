@@ -42,6 +42,9 @@ CUSTOM_COMMANDS = {
 
         # Install R dependencies
         ["apt-get", "-qq", "-m", "-y", "install", "libcurl4-openssl-dev", "libxml2-dev", "libxslt-dev", "libssl-dev", "r-base", "r-base-dev"],
+        
+        # Cairo dependencies        
+        ["apt-get", "-qq", "-m", "-y", "install", "libcairo2-dev", "libxt-dev"],
     ],
     "debian": [
         # Upgrade R
