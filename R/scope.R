@@ -78,6 +78,8 @@ scope_deployment <- function(id,
                  directory,
                  exclude = exclude)
 
+  browser()
+
   if (dry_run)
     message("\nTemporary deployment path ", root, " will not be automatically removed in dry runs.")
   else
