@@ -73,12 +73,12 @@ scope_deployment <- function(id,
   # keras will override the actual keras package!
   directory <- file.path(root, "cloudml-model")
 
+  browser()
+
   # build deployment bundle
   copy_directory(application,
                  directory,
                  exclude = exclude)
-
-  browser()
 
   if (dry_run)
     message("\nTemporary deployment path ", root, " will not be automatically removed in dry runs.")
